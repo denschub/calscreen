@@ -107,7 +107,7 @@ class TimestampView {
     let milliseconds = pad(date.getUTCMilliseconds(), 3);
 
     this._dateEl.textContent = `${year}-${month}-${day}`;
-    this._timeEl.textContent = `${hours}:${minutes}:${seconds}.${milliseconds}`;
+    this._timeEl.textContent = `${hours}:${minutes}:${seconds}.${milliseconds}Z`;
   }
 
   animationFrame() {
