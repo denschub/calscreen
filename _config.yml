@@ -1,0 +1,17 @@
+baseurl: "/calscreen"
+
+exclude:
+  - .*
+  - Gemfile
+  - Gemfile.lock
+
+sass:
+  sass_dir: css
+  style: nested
+  deploy_style: nested
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

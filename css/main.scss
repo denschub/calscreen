@@ -1,0 +1,39 @@
+---
+---
+
+@import "normalize";
+
+html, body {
+  display: grid;
+  font-family: "Fira Mono", monospace;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+canvas#patternbg {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+#overlayText {
+  margin: auto;
+  text-align: center;
+
+  p {
+    margin: 4vw;
+  }
+
+  span {
+    background-color: black;
+    color: white;
+    font-size: 3vw;
+    padding: 1vw;
+  }
+}
+
+html {
+  background-color: black;
+}
