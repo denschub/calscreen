@@ -100,7 +100,7 @@ class TimestampView {
 
     let year = date.getUTCFullYear();
     let month = pad(date.getUTCMonth() + 1);
-    let day = pad(date.getUTCDay());
+    let day = pad(date.getUTCDate());
     let hours = pad(date.getUTCHours());
     let minutes = pad(date.getUTCMinutes());
     let seconds = pad(date.getUTCSeconds());
