@@ -116,7 +116,43 @@ class TimestampView {
   }
 }
 
+class RegularBeep {
+  constructor() {
+    this._beeping = false;
+    this._ctx = new window.AudioContext();
+
+    this.animationFrame();
+  }
+
+  onBeepEnd() {
+    this._beeping = false;
+  }
+
+  beep() {
+    this._beeping = true;
+
+    let oscillator = this._ctx.createOscillator();
+
+    oscillator.type = "sine";
+    oscillator.frequency.setValueAtTime(550, this._ctx.currentTime);
+    oscillator.connect(this._ctx.destination);
+    oscillator.addEventListener("ended", this.onBeepEnd.bind(this));
+
+    oscillator.start();
+    oscillator.stop(this._ctx.currentTime + 1);
+  }
+
+  animationFrame() {
+    if (!this._beeping && ((new Date()).getSeconds()+1) % 15 == 0) {
+      this.beep();
+    }
+
+    window.requestAnimationFrame(this.animationFrame.bind(this));
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  new RegularBeep();
   new TestPatternBackground(document.getElementById("patternbg"));
   new TimestampView(
     document.querySelector("#date span"),
